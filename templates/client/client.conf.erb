@@ -1,0 +1,10 @@
+<%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
+
+ampname = <%= scope.lookupvar("::clientcert") %>
+
+collector {
+  address    = localhost
+  exchange   = amp_exchange
+  routingkey = amp
+}
+

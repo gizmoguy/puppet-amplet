@@ -1,0 +1,3 @@
+# Puppet amplet configuration module.
+
+A module that can install and configure WAND's AMP project.

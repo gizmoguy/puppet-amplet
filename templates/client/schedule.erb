@@ -1,0 +1,40 @@
+<%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
+
+#
+# Latency
+#
+www.wand.net.nz:*,icmp,D,0,86400000,30000
+www.wand.net.nz:*,traceroute,D,0,86400000,60000
+www.amazon.com:*,icmp,D,0,86400000,30000
+cdns01.comcast.net:*,icmp,D,0,86400000,30000
+download.microsoft.com:*,icmp,D,0,86400000,30000
+www.google.com:*,icmp,D,0,86400000,30000
+www.nzherald.co.nz:*,icmp,D,0,86400000,30000
+www.nzherald.co.nz:*,traceroute,D,0,86400000,60000
+www.lightwire.co.nz:*,icmp,D,0,86400000,30000
+www.lightwire.co.nz:*,traceroute,D,0,86400000,60000
+v1.lscache1.c.youtube.com:*,icmp,D,0,86400000,30000
+v1.lscache1.c.youtube.com:*,traceroute,D,0,86400000,60000
+
+#
+# DNS
+#
+<%- if scope.lookupvar("::nameserver0") %>
+<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.wand.net.nz -r
+<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.google.com -r -t AAAA
+<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.google.com -r -t A
+<% end -%>
+
+ns1.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns2.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns3.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns4.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns5.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns6.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns7.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+
+#
+# HTTP
+#
+wand.net.nz,http,D,0,86400000,60000,-u http://wand.net.nz/
+www.nzherald.co.nz,http,D,0,86400000,60000,-u http://www.nzherald.co.nz/

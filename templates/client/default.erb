@@ -1,0 +1,4 @@
+<%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
+
+DAEMON_OPTS="-d"
+START_DAEMON=1
