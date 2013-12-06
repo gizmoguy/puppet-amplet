@@ -22,5 +22,8 @@ class amplet::client::params {
   $nametable_path   = '/etc/amplet2/nametable'
   $schedule_config  = 'amplet/client/schedule.erb'
   $schedule_path    = '/etc/amplet2/schedule.d/schedule'
+  $cacert           = ''
+  $cert             = ''
+  $key              = ''
 
 }

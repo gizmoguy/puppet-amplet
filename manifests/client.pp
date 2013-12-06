@@ -10,6 +10,9 @@ class amplet::client (
   $schedule_path    = $amplet::client::params::schedule_path,
   $package_ensure   = $amplet::client::params::package_ensure,
   $package_provider = $amplet::client::params::package_provider,
+  $cacert           = $amplet::client::params::cacert,
+  $cert             = $amplet::client::params::cert,
+  $key              = $amplet::client::params::key,
 ) inherits amplet::client::params {
 
   validate_string($service_config)
@@ -22,6 +25,9 @@ class amplet::client (
   validate_absolute_path($schedule_path)
   validate_string($package_ensure)
   validate_string($package_provider)
+  validate_string($cacert)
+  validate_string($cert)
+  validate_string($key)
 
   include '::amplet::client::install'
   include '::amplet::client::config'

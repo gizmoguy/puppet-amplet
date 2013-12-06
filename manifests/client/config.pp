@@ -49,4 +49,31 @@ class amplet::client::config {
     notify  => Class['amplet::client::service'],
   }
 
+  file { 'cacert.pem':
+    ensure  => file,
+    path    => '/etc/amplet2/keys/cacert.pem',
+    content => template('amplet/client/cacert.pem.erb'),
+    owner   => '0',
+    group   => '0',
+    mode    => '0644'
+  }
+
+  file { 'cert.pem':
+    ensure  => file,
+    path    => '/etc/amplet2/keys/cert.pem',
+    content => template('amplet/client/cert.pem.erb'),
+    owner   => '0',
+    group   => '0',
+    mode    => '0644'
+  }
+
+  file { 'key.pem':
+    ensure  => file,
+    path    => '/etc/amplet2/keys/key.pem',
+    content => template('amplet/client/key.pem.erb'),
+    owner   => '0',
+    group   => '0',
+    mode    => '0600'
+  }
+
 }
