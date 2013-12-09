@@ -13,11 +13,13 @@ www.stuff.co.nz:*,icmp,D,0,86400000,30000
 www.stuff.co.nz:*,traceroute,D,0,86400000,60000
 www.trademe.co.nz:*,icmp,D,0,86400000,30000
 www.trademe.co.nz:*,traceroute,D,0,86400000,60000
+www.tvnz.co.nz:*,icmp,D,0,86400000,30000
 www.tvnz.co.nz:*,traceroute,D,0,86400000,60000
+www.tv3.co.nz:*,icmp,D,0,86400000,30000
 www.tv3.co.nz:*,traceroute,D,0,86400000,60000
+www.xero.com:*,icmp,D,0,86400000,30000
 www.xero.com:*,traceroute,D,0,86400000,60000
-www.xero.com:*,traceroute,D,0,86400000,60000
-www.mega.co.nz:*,traceroute,D,0,86400000,60000
+www.mega.co.nz:*,icmp,D,0,86400000,30000
 www.mega.co.nz:*,traceroute,D,0,86400000,60000
 
 # NZ ISP
@@ -28,12 +30,12 @@ www.orcon.net.nz:*,traceroute,D,0,86400000,60000
 www.iconz-webvisions.com:*,icmp,D,0,86400000,30000
 www.iconz-webvisions.com:*,traceroute,D,0,86400000,60000
 www.snap.net.nz:*,icmp,D,0,86400000,30000
-www.snap.net.nz:*,icmp,D,0,86400000,30000
+www.snap.net.nz:*,traceroute,D,0,86400000,60000
 www.reannz.co.nz:*,icmp,D,0,86400000,30000
-www.reannz.co.nz:*,icmp,D,0,86400000,30000
+www.reannz.co.nz:*,traceroute,D,0,86400000,60000
+www.fx.net.nz:*,icmp,D,0,86400000,30000
 www.fx.net.nz:*,traceroute,D,0,86400000,60000
-www.fx.net.nz:*,traceroute,D,0,86400000,60000
-www.vocus.co.nz:*,traceroute,D,0,86400000,60000
+www.vocus.co.nz:*,icmp,D,0,86400000,30000
 www.vocus.co.nz:*,traceroute,D,0,86400000,60000
 
 # NZ DNS
@@ -49,6 +51,8 @@ ns5.dns.net.nz:*,icmp,D,0,86400000,30000
 ns5.dns.net.nz:*,traceroute,D,0,86400000,60000
 ns6.dns.net.nz:*,icmp,D,0,86400000,30000
 ns6.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns7.dns.net.nz:*,icmp,D,0,86400000,30000
+ns7.dns.net.nz:*,traceroute,D,0,86400000,60000
 
 # REANNZ
 ps01-akl.reannz.co.nz:*,icmp,D,0,86400000,30000
@@ -68,9 +72,9 @@ ps17-avl.reannz.co.nz:*,traceroute,D,0,86400000,60000
 
 # CDN
 download.microsoft.com:*,icmp,D,0,86400000,30000
-download.microsoft.com:*,traceroute,D,0,86400000,30000
+download.microsoft.com:*,traceroute,D,0,86400000,60000
 www.cloudflare.com:*,icmp,D,0,86400000,30000
-www.cloudflare.com:*,traceroute,D,0,86400000,30000
+www.cloudflare.com:*,traceroute,D,0,86400000,60000
 
 # Open DNS
 8.8.8.8,icmp,D,0,86400000,30000
@@ -89,16 +93,16 @@ www.youtube.com:*,icmp,D,0,86400000,30000
 www.youtube.com:*,traceroute,D,0,86400000,60000
 v1.lscache1.c.youtube.com:*,icmp,D,0,86400000,30000
 v1.lscache1.c.youtube.com:*,traceroute,D,0,86400000,60000
-wikipedia.org,icmp,D,0,86400000,30000
-wikipedia.org,traceroute,D,0,86400000,60000
-netflix.com,icmp,D,0,86400000,30000
-netflix.com,traceroute,D,0,86400000,60000
-facebook.com,icmp,D,0,86400000,30000
-facebook.com,traceroute,D,0,86400000,60000
-bing.com,icmp,D,0,86400000,30000
-bing.com,traceroute,D,0,86400000,60000
-twitter.com,icmp,D,0,86400000,30000
-twitter.com,traceroute,D,0,86400000,60000
+www.wikipedia.org:*,icmp,D,0,86400000,30000
+www.wikipedia.org:*,traceroute,D,0,86400000,60000
+www.netflix.com:*,icmp,D,0,86400000,30000
+www.netflix.com:*,traceroute,D,0,86400000,60000
+www.facebook.com:*,icmp,D,0,86400000,30000
+www.facebook.com:*,traceroute,D,0,86400000,60000
+www.bing.com:*,icmp,D,0,86400000,30000
+www.bing.com:*,traceroute,D,0,86400000,60000
+www.twitter.com:*,icmp,D,0,86400000,30000
+www.twitter.com:*,traceroute,D,0,86400000,60000
 
 # RIR
 arin.net,icmp,D,0,86400000,30000
@@ -132,13 +136,15 @@ ns7.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
 #
 # HTTP
 #
-wand.net.nz,http,D,0,86400000,60000,-u http://wand.net.nz/
-www.nzherald.co.nz,http,D,0,86400000,60000,-u http://www.nzherald.co.nz/
-www.stuff.co.nz,http,D,0,86400000,60000,-u http://www.stuff.co.nz/
-www.trademe.co.nz,http,D,0,86400000,60000,-u http://www.trademe.co.nz/
-www.metservice.com,http,D,0,86400000,60000,-u http://www.trademe.co.nz/
-www.google.com,http,D,0,86400000,60000,-u http://www.google.com/
-www.amazon.com,http,D,0,86400000,60000,-u http://www.amazon.com/
-www.facebook.com,http,D,0,86400000,60000,-u http://www.facebook.com/
-www.bing.com,http,D,0,86400000,60000,-u http://www.bing.com/
-www.wikipedia.org,http,D,0,86400000,60000,-u http://www.wikipedia.org/
+# One test every 6 minutes, each specific test repeated once per hour
+#
+wand.net.nz,http,D,0,86400000,3600000,-u http://wand.net.nz/
+www.nzherald.co.nz,http,D,360000,86400000,3600000,-u http://www.nzherald.co.nz/
+www.stuff.co.nz,http,D,720000,86400000,3600000,-u http://www.stuff.co.nz/
+www.trademe.co.nz,http,D,1080000,86400000,3600000,-u http://www.trademe.co.nz/
+www.metservice.com,http,D,1440000,86400000,3600000,-u http://www.metservice.com/
+www.google.com,http,D,1800000,86400000,3600000,-u http://www.google.com/
+www.amazon.com,http,D,2160000,86400000,3600000,-u http://www.amazon.com/
+www.facebook.com,http,D,2520000,86400000,3600000,-u http://www.facebook.com/
+www.bing.com,http,D,2880000,86400000,3600000,-u http://www.bing.com/
+www.wikipedia.org,http,D,3240000,86400000,3600000,-u http://www.wikipedia.org/
