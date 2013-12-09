@@ -3,7 +3,7 @@ class amplet::server::config {
   file {'/etc/amplet2':
     ensure => directory,
     path   => '/etc/amplet2',
-    owner  => 'rabbitmq',
+    owner  => '0',
     group  => '0',
     mode   => '0755'
   }
