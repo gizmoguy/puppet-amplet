@@ -1,20 +1,116 @@
 <%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
 
 #
-# Latency
+# ICMP/Traceroute
 #
+
+# NZ
 www.wand.net.nz:*,icmp,D,0,86400000,30000
 www.wand.net.nz:*,traceroute,D,0,86400000,60000
-www.amazon.com:*,icmp,D,0,86400000,30000
-cdns01.comcast.net:*,icmp,D,0,86400000,30000
-download.microsoft.com:*,icmp,D,0,86400000,30000
-www.google.com:*,icmp,D,0,86400000,30000
 www.nzherald.co.nz:*,icmp,D,0,86400000,30000
 www.nzherald.co.nz:*,traceroute,D,0,86400000,60000
-www.lightwire.co.nz:*,icmp,D,0,86400000,30000
-www.lightwire.co.nz:*,traceroute,D,0,86400000,60000
+www.stuff.co.nz:*,icmp,D,0,86400000,30000
+www.stuff.co.nz:*,traceroute,D,0,86400000,60000
+www.trademe.co.nz:*,icmp,D,0,86400000,30000
+www.trademe.co.nz:*,traceroute,D,0,86400000,60000
+www.tvnz.co.nz:*,traceroute,D,0,86400000,60000
+www.tv3.co.nz:*,traceroute,D,0,86400000,60000
+www.xero.com:*,traceroute,D,0,86400000,60000
+www.xero.com:*,traceroute,D,0,86400000,60000
+www.mega.co.nz:*,traceroute,D,0,86400000,60000
+www.mega.co.nz:*,traceroute,D,0,86400000,60000
+
+# NZ ISP
+www.callplus.co.nz:*,icmp,D,0,86400000,30000
+www.callplus.co.nz:*,traceroute,D,0,86400000,60000
+www.orcon.net.nz:*,icmp,D,0,86400000,30000
+www.orcon.net.nz:*,traceroute,D,0,86400000,60000
+www.iconz-webvisions.com:*,icmp,D,0,86400000,30000
+www.iconz-webvisions.com:*,traceroute,D,0,86400000,60000
+www.snap.net.nz:*,icmp,D,0,86400000,30000
+www.snap.net.nz:*,icmp,D,0,86400000,30000
+www.reannz.co.nz:*,icmp,D,0,86400000,30000
+www.reannz.co.nz:*,icmp,D,0,86400000,30000
+www.fx.net.nz:*,traceroute,D,0,86400000,60000
+www.fx.net.nz:*,traceroute,D,0,86400000,60000
+www.vocus.co.nz:*,traceroute,D,0,86400000,60000
+www.vocus.co.nz:*,traceroute,D,0,86400000,60000
+
+# NZ DNS
+ns1.dns.net.nz:*,icmp,D,0,86400000,30000
+ns1.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns2.dns.net.nz:*,icmp,D,0,86400000,30000
+ns2.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns3.dns.net.nz:*,icmp,D,0,86400000,30000
+ns3.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns4.dns.net.nz:*,icmp,D,0,86400000,30000
+ns4.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns5.dns.net.nz:*,icmp,D,0,86400000,30000
+ns5.dns.net.nz:*,traceroute,D,0,86400000,60000
+ns6.dns.net.nz:*,icmp,D,0,86400000,30000
+ns6.dns.net.nz:*,traceroute,D,0,86400000,60000
+
+# REANNZ
+ps01-akl.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps01-akl.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps02-wlg.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps02-wlg.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps03-chc.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps03-chc.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps04-dud.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps04-dud.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps14-hlz.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps14-hlz.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps16-mup.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps16-mup.reannz.co.nz:*,traceroute,D,0,86400000,60000
+ps17-avl.reannz.co.nz:*,icmp,D,0,86400000,30000
+ps17-avl.reannz.co.nz:*,traceroute,D,0,86400000,60000
+
+# CDN
+download.microsoft.com:*,icmp,D,0,86400000,30000
+download.microsoft.com:*,traceroute,D,0,86400000,30000
+www.cloudflare.com:*,icmp,D,0,86400000,30000
+www.cloudflare.com:*,traceroute,D,0,86400000,30000
+
+# Open DNS
+8.8.8.8,icmp,D,0,86400000,30000
+8.8.8.8,traceroute,D,0,86400000,60000
+8.8.4.4,icmp,D,0,86400000,30000
+8.8.4.4,traceroute,D,0,86400000,60000
+resolver1.opendns.com,icmp,D,0,86400000,30000
+resolver1.opendns.com,traceroute,D,0,86400000,60000
+resolver2.opendns.com,icmp,D,0,86400000,30000
+resolver2.opendns.com,traceroute,D,0,86400000,60000
+
+# International
+www.google.com:*,icmp,D,0,86400000,30000
+www.google.com:*,traceroute,D,0,86400000,60000
+www.youtube.com:*,icmp,D,0,86400000,30000
+www.youtube.com:*,traceroute,D,0,86400000,60000
 v1.lscache1.c.youtube.com:*,icmp,D,0,86400000,30000
 v1.lscache1.c.youtube.com:*,traceroute,D,0,86400000,60000
+wikipedia.org,icmp,D,0,86400000,30000
+wikipedia.org,traceroute,D,0,86400000,60000
+netflix.com,icmp,D,0,86400000,30000
+netflix.com,traceroute,D,0,86400000,60000
+facebook.com,icmp,D,0,86400000,30000
+facebook.com,traceroute,D,0,86400000,60000
+bing.com,icmp,D,0,86400000,30000
+bing.com,traceroute,D,0,86400000,60000
+twitter.com,icmp,D,0,86400000,30000
+twitter.com,traceroute,D,0,86400000,60000
+
+# RIR
+arin.net,icmp,D,0,86400000,30000
+arin.net,traceroute,D,0,86400000,60000
+afrinic.net,icmp,D,0,86400000,30000
+afrinic.net,traceroute,D,0,86400000,60000
+apnic.net,icmp,D,0,86400000,30000
+apnic.net,traceroute,D,0,86400000,60000
+lacnic.net,icmp,D,0,86400000,30000
+lacnic.net,traceroute,D,0,86400000,60000
+pri.authdns.ripe.net,icmp,D,0,86400000,30000
+pri.authdns.ripe.net,traceroute,D,0,86400000,60000
 
 #
 # DNS
@@ -38,3 +134,11 @@ ns7.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
 #
 wand.net.nz,http,D,0,86400000,60000,-u http://wand.net.nz/
 www.nzherald.co.nz,http,D,0,86400000,60000,-u http://www.nzherald.co.nz/
+www.stuff.co.nz,http,D,0,86400000,60000,-u http://www.stuff.co.nz/
+www.trademe.co.nz,http,D,0,86400000,60000,-u http://www.trademe.co.nz/
+www.metservice.com,http,D,0,86400000,60000,-u http://www.trademe.co.nz/
+www.google.com,http,D,0,86400000,60000,-u http://www.google.com/
+www.amazon.com,http,D,0,86400000,60000,-u http://www.amazon.com/
+www.facebook.com,http,D,0,86400000,60000,-u http://www.facebook.com/
+www.bing.com,http,D,0,86400000,60000,-u http://www.bing.com/
+www.wikipedia.org,http,D,0,86400000,60000,-u http://www.wikipedia.org/
