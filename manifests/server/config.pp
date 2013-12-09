@@ -3,7 +3,7 @@ class amplet::server::config {
   file {'/etc/amplet2':
     ensure => directory,
     path   => '/etc/amplet2',
-    owner  => '0',
+    owner  => 'rabbitmq',
     group  => '0',
     mode   => '0755'
   }
@@ -11,7 +11,7 @@ class amplet::server::config {
   file {'/etc/amplet2/keys':
     ensure => directory,
     path   => '/etc/amplet2/keys',
-    owner  => '0',
+    owner  => 'rabbitmq',
     group  => '0',
     mode   => '0700'
   }
@@ -19,7 +19,7 @@ class amplet::server::config {
   file {'/etc/amplet2/keys/server':
     ensure => directory,
     path   => '/etc/amplet2/keys/server',
-    owner  => '0',
+    owner  => 'rabbitmq',
     group  => '0',
     mode   => '0700'
   }
@@ -28,7 +28,7 @@ class amplet::server::config {
     ensure  => file,
     path    => '/etc/amplet2/keys/server/cacert.pem',
     content => template('amplet/server/cacert.pem.erb'),
-    owner   => '0',
+    owner   => 'rabbitmq',
     group   => '0',
     mode    => '0644'
   }
@@ -37,7 +37,7 @@ class amplet::server::config {
     ensure  => file,
     path    => '/etc/amplet2/keys/server/cert.pem',
     content => template('amplet/server/cert.pem.erb'),
-    owner   => '0',
+    owner   => 'rabbitmq',
     group   => '0',
     mode    => '0644'
   }
@@ -46,7 +46,7 @@ class amplet::server::config {
     ensure  => file,
     path    => '/etc/amplet2/keys/server/key.pem',
     content => template('amplet/server/key.pem.erb'),
-    owner   => '0',
+    owner   => 'rabbitmq',
     group   => '0',
     mode    => '0600'
   }
