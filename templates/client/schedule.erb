@@ -104,6 +104,34 @@ www.bing.com:*,traceroute,D,0,86400000,60000
 www.twitter.com:*,icmp,D,0,86400000,30000
 www.twitter.com:*,traceroute,D,0,86400000,60000
 
+# Root DNS
+a.root-servers.net:*,icmp,D,0,86400000,30000
+a.root-servers.net:*,traceroute,D,0,86400000,60000
+b.root-servers.net:*,icmp,D,0,86400000,30000
+b.root-servers.net:*,traceroute,D,0,86400000,60000
+c.root-servers.net:*,icmp,D,0,86400000,30000
+c.root-servers.net:*,traceroute,D,0,86400000,60000
+d.root-servers.net:*,icmp,D,0,86400000,30000
+d.root-servers.net:*,traceroute,D,0,86400000,60000
+e.root-servers.net:*,icmp,D,0,86400000,30000
+e.root-servers.net:*,traceroute,D,0,86400000,60000
+f.root-servers.net:*,icmp,D,0,86400000,30000
+f.root-servers.net:*,traceroute,D,0,86400000,60000
+g.root-servers.net:*,icmp,D,0,86400000,30000
+g.root-servers.net:*,traceroute,D,0,86400000,60000
+h.root-servers.net:*,icmp,D,0,86400000,30000
+h.root-servers.net:*,traceroute,D,0,86400000,60000
+i.root-servers.net:*,icmp,D,0,86400000,30000
+i.root-servers.net:*,traceroute,D,0,86400000,60000
+j.root-servers.net:*,icmp,D,0,86400000,30000
+j.root-servers.net:*,traceroute,D,0,86400000,60000
+k.root-servers.net:*,icmp,D,0,86400000,30000
+k.root-servers.net:*,traceroute,D,0,86400000,60000
+l.root-servers.net:*,icmp,D,0,86400000,30000
+l.root-servers.net:*,traceroute,D,0,86400000,60000
+m.root-servers.net:*,icmp,D,0,86400000,30000
+m.root-servers.net:*,traceroute,D,0,86400000,60000
+
 # RIR
 arin.net,icmp,D,0,86400000,30000
 arin.net,traceroute,D,0,86400000,60000
@@ -120,18 +148,29 @@ pri.authdns.ripe.net,traceroute,D,0,86400000,60000
 # DNS
 #
 <%- if scope.lookupvar("::nameserver0") %>
-<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.wand.net.nz -r
-<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.google.com -r -t AAAA
-<%= scope.lookupvar("::nameserver0") %>,dns,D,0,86400000,60000,-q www.google.com -r -t A
 <% end -%>
 
-ns1.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns2.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns3.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns4.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns5.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns6.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
-ns7.dns.net.nz,dns,D,0,86400000,60000,-q www.google.com -r -t A
+ns1.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns2.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns3.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns4.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns5.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns6.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+ns7.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+
+a.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+b.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+c.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+d.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+e.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+f.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+g.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+h.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+i.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+j.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+k.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+l.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+m.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
 
 #
 # HTTP
