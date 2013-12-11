@@ -77,14 +77,18 @@ www.cloudflare.com:*,icmp,D,0,86400000,30000
 www.cloudflare.com:*,traceroute,D,0,86400000,60000
 
 # Open DNS
-8.8.8.8,icmp,D,0,86400000,30000
-8.8.8.8,traceroute,D,0,86400000,60000
-8.8.4.4,icmp,D,0,86400000,30000
-8.8.4.4,traceroute,D,0,86400000,60000
+google-public-dns-a.google.com,icmp,D,0,86400000,30000
+google-public-dns-a.google.com,traceroute,D,0,86400000,60000
+google-public-dns-b.google.com,icmp,D,0,86400000,30000
+google-public-dns-b.google.com,traceroute,D,0,86400000,60000
 resolver1.opendns.com,icmp,D,0,86400000,30000
 resolver1.opendns.com,traceroute,D,0,86400000,60000
 resolver2.opendns.com,icmp,D,0,86400000,30000
 resolver2.opendns.com,traceroute,D,0,86400000,60000
+a.resolvers.level3.net,icmp,D,0,86400000,30000
+a.resolvers.level3.net,traceroute,D,0,86400000,60000
+b.resolvers.level3.net,icmp,D,0,86400000,30000
+b.resolvers.level3.net,traceroute,D,0,86400000,60000
 
 # International
 www.google.com:*,icmp,D,0,86400000,30000
@@ -150,27 +154,41 @@ pri.authdns.ripe.net,traceroute,D,0,86400000,60000
 <%- if scope.lookupvar("::nameserver0") %>
 <% end -%>
 
-ns1.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns2.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns3.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns4.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns5.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns6.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
-ns7.dns.net.nz:*,dns,D,0,86400000,60000,-q example.com -r -t A
+# Recursive
+google-public-dns-a.google.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
+google-public-dns-a.google.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
+google-public-dns-b.google.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
+google-public-dns-b.google.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
+resolver1.opendns.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
+resolver1.opendns.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
+resolver2.opendns.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
+resolver2.opendns.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
+a.resolvers.level3.net:*,dns,D,0,86400000,60000,-q google.com -r -t A
+a.resolvers.level3.net:*,dns,D,0,86400000,60000,-q example.org -r -t A
+b.resolvers.level3.net:*,dns,D,0,86400000,60000,-q google.com -r -t A
+b.resolvers.level3.net:*,dns,D,0,86400000,60000,-q example.org -r -t A
 
-a.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-b.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-c.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-d.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-e.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-f.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-g.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-h.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-i.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-j.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-k.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-l.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
-m.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -r -t A
+# Authoritative
+ns1.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns2.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns3.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns4.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns5.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns6.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+ns7.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
+a.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+b.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+c.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+d.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+e.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+f.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+g.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+h.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+i.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+j.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+k.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+l.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+m.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
 
 #
 # HTTP
