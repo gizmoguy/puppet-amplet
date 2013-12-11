@@ -4,6 +4,18 @@
 # ICMP/Traceroute
 #
 
+# amplets
+<% File.open(File.expand_path("nametable.erb",File.dirname(file))) do |fh| -%>
+<% fh.each_line do |line| -%>
+  <%- if line.include? "amp.wand.net.nz" -%>
+    <%- if !line.include? scope.lookupvar("::clientcert") -%>
+<%= line.strip.split(" ")[0] %>:*,icmp,D,0,86400000,30000
+<%= line.strip.split(" ")[0] %>:*,traceroute,D,0,86400000,60000
+    <%- end -%>
+  <%- end -%>
+<% end -%>
+<% end -%>
+
 # NZ
 www.wand.net.nz:*,icmp,D,0,86400000,30000
 www.wand.net.nz:*,traceroute,D,0,86400000,60000
