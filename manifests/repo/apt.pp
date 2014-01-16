@@ -10,7 +10,7 @@ class amplet::repo::apt {
     release     => $::lsbdistcodename,
     repos       => 'main',
     include_src => false,
-    key         => '3A739910',
+    key         => '77002036',
     key_content => template('amplet/repo.pub.key.erb'),
   }
 }
