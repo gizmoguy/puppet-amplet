@@ -63,6 +63,8 @@ www.northpowerfibre.co.nz:*,icmp,D,0,86400000,30000
 #www.northpowerfibre.co.nz:*,traceroute,D,0,86400000,60000
 www.enable.net.nz:*,icmp,D,0,86400000,30000
 www.enable.net.nz:*,traceroute,D,0,86400000,60000
+2talk.co.nz:*,icmp,D,0,86400000,30000
+2talk.co.nz:*,traceroute,D,0,86400000,60000
 
 # NZ DNS
 ns1.dns.net.nz:*,icmp,D,0,86400000,30000
@@ -97,6 +99,8 @@ gcm.googleapis.com:*,icmp,D,0,86400000,30000
 gcm.googleapis.com:*,traceroute,D,0,86400000,60000
 a248.e.akamai.net:*,icmp,D,0,86400000,30000
 a248.e.akamai.net:*,traceroute,D,0,86400000,60000
+cloud.google.com:*,icmp,D,0,86400000,30000
+cloud.google.com:*,traceroute,D,0,86400000,60000
 
 # Open DNS
 google-public-dns-a.google.com:*,icmp,D,0,86400000,30000
@@ -127,6 +131,10 @@ www.bing.com:*,icmp,D,0,86400000,30000
 www.bing.com:*,traceroute,D,0,86400000,60000
 www.twitter.com:*,icmp,D,0,86400000,30000
 www.twitter.com:*,traceroute,D,0,86400000,60000
+
+# Analytics
+www.google-analytics.com:*,icmp,D,0,86400000,30000
+www.google-analytics.com:*,traceroute,D,0,86400000,60000
 
 # Root DNS
 a.root-servers.net:*,icmp,D,0,86400000,30000
@@ -209,6 +217,10 @@ j.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
 k.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
 l.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
 m.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
+ns1.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
+ns2.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
+ns3.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
+ns4.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
 
 #
 # HTTP
