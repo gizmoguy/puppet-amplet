@@ -11,7 +11,12 @@ describe 'amplet::client' do
   end
 
   context 'on Debian' do
-    let(:facts) {{ :osfamily => 'Debian', :lsbdistcodename => 'wheezy' }}
+    let(:facts) {{
+      :osfamily => 'Debian',
+      :lsbdistid => 'Debian',
+      :clientcert => 'foo.bar',
+      :lsbdistcodename => 'wheezy'
+    }}
 
     it 'includes amplet::repo::apt' do
       should contain_class('amplet::repo::apt')
@@ -30,6 +35,7 @@ describe 'amplet::client' do
     context "on #{distro}" do
       let(:facts) {{
         :osfamily => distro,
+        :lsbdistid => distro,
         :lsbdistcodename => 'squeeze',
         :clientcert => 'foo.bar',
         :nameserver0 => '8.8.8.8'
