@@ -22,7 +22,7 @@ describe 'amplet::client' do
       'release'     => 'wheezy',
       'repos'       => 'main',
       'include_src' => false,
-      'key'         => '3A739910'
+      'key'         => '77002036'
     )}
   end
 
