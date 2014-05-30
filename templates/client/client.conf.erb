@@ -6,5 +6,10 @@ collector {
   address    = localhost
   exchange   = amp_exchange
   routingkey = amp
+  port       = 5671
+  ssl        = true
+  cacert     = <%= @keys_path %>/cacert.pem
+  cert       = <%= @keys_path %>/cert.pem
+  key        = <%= @keys_path %>/key.pem
 }
 

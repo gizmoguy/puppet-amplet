@@ -18,11 +18,12 @@ class amplet::client::params {
   $service_config   = 'amplet/client/default.erb'
   $service_path     = '/etc/defaults/amplet2-client'
   $config           = 'amplet/client/client.conf.erb'
-  $config_path      = '/etc/amplet2/client.conf'
+  $config_path      = "/etc/amplet2/clients/${ampname}.conf"
   $nametable_config = 'amplet/client/nametable.erb'
-  $nametable_path   = '/etc/amplet2/nametable'
+  $nametable_path   = "/etc/amplet2/nametables/${ampname}"
   $schedule_config  = 'amplet/client/schedule.erb'
-  $schedule_path    = '/etc/amplet2/schedule.d/schedule'
+  $schedule_path    = "/etc/amplet2/schedules/${ampname}"
+  $keys_path        = "/etc/amplet2/keys/${ampname}"
   $cacert           = ''
   $cert             = ''
   $key              = ''
