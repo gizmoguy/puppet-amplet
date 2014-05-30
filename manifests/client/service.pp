@@ -1,8 +1,4 @@
-# Class: amplet::client::service
-#
-#   This class manages the rabbitmq server service itself.
-class amplet::client::service(
-) inherits amplet::client {
+class amplet::client::service {
 
   service { 'amplet2-client':
     ensure     => running,
