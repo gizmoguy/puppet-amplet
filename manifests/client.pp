@@ -31,6 +31,7 @@ class amplet::client (
   validate_string($cert)
   validate_string($key)
 
+  include '::amplet::client::cleanup'
   include '::amplet::client::install'
   include '::amplet::client::config'
   include '::amplet::client::service'
@@ -48,8 +49,8 @@ class amplet::client (
   anchor { 'amplet::client::begin': }
   anchor { 'amplet::client::end': }
 
-  Anchor['amplet::client::begin'] -> Class['::amplet::client::install']
-    -> Class['::amplet::client::config'] ~> Class['::amplet::client::service']
-    -> Anchor['amplet::client::end']
+  Anchor['amplet::client::begin'] -> Class['::amplet::client::cleanup']
+    -> Class['::amplet::client::install'] -> Class['::amplet::client::config']
+    ~> Class['::amplet::client::service'] -> Anchor['amplet::client::end']
 
 }
