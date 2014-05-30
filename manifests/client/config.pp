@@ -1,5 +1,6 @@
 class amplet::client::config {
 
+  $ampname             = $amplet::client::ampname
   $service_config      = $amplet::client::service_config
   $service_config_path = $amplet::client::service_config_path
   $config              = $amplet::client::config
