@@ -106,6 +106,7 @@ class amplet::client::config {
     command     => "/usr/sbin/amplet2 -f -c ${config_path}",
     cwd         => "/tmp",
     path        => ["/bin", "/usr/bin", "/usr/sbin"],
+    environment => "HOME=/tmp",
     refreshonly => true,
     subscribe   => File['client.conf'],
     notify      => Class['amplet::client::service']
