@@ -15,6 +15,7 @@ class amplet::client::params {
   }
 
   $ampname          = $::clientcert
+  $ampcollector     = 'localhost'
   $service_config   = 'amplet/client/default.erb'
   $service_path     = '/etc/defaults/amplet2-client'
   $config           = 'amplet/client/client.conf.erb'

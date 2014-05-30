@@ -3,7 +3,7 @@
 ampname = <%= @ampname %>
 
 collector {
-  address    = localhost
+  address    = <%= @ampcollector %>
   exchange   = amp_exchange
   routingkey = amp
   port       = 5671

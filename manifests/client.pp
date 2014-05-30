@@ -1,6 +1,7 @@
   #
 class amplet::client (
   $ampname          = $amplet::client::params::ampname,
+  $ampcollector     = $amplet::client::params::ampcollector,
   $service_config   = $amplet::client::params::service_config,
   $service_path     = $amplet::client::params::service_path,
   $config           = $amplet::client::params::config,
@@ -17,6 +18,7 @@ class amplet::client (
 ) inherits amplet::client::params {
 
   validate_string($ampname)
+  validate_string($ampcollector)
   validate_string($service_config)
   validate_absolute_path($service_path)
   validate_string($config)
