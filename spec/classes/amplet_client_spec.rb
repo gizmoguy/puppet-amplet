@@ -59,6 +59,9 @@ describe 'amplet::client' do
         it { should contain_file('/etc/amplet2/nametable').with(
           'ensure' => 'absent'
         )}
+        it { should contain_file('/etc/amplet2/schedule.d/example.schedule').with(
+          'ensure' => 'absent'
+        )}
         it { should contain_file('/etc/amplet2/schedule.d/schedule').with(
           'ensure' => 'absent'
         )}

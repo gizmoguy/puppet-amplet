@@ -10,6 +10,11 @@ class amplet::client::cleanup {
     path    => '/etc/amplet2/nametable',
   }
 
+  file { '/etc/amplet2/schedule.d/example.schedule':
+    ensure  => absent,
+    path    => '/etc/amplet2/schedule.d/example.schedule',
+  }
+
   file { '/etc/amplet2/schedule.d/schedule':
     ensure  => absent,
     path    => '/etc/amplet2/schedule.d/schedule',
