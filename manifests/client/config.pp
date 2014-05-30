@@ -22,6 +22,11 @@ class amplet::client::config {
     notify  => Class['amplet::client::service'],
   }
 
+  file { 'default.conf':
+    ensure  => absent,
+    path    => '/etc/amplet2/clients/default.conf'
+  }
+
   file { 'client.conf':
     ensure  => file,
     path    => $config_path,

@@ -76,6 +76,13 @@ describe 'amplet::client' do
         )}
       end
 
+      describe 'remove default amp configuration' do
+        it { should contain_file('default.conf').with(
+          'ensure' => 'absent',
+          'path'   => '/etc/amplet2/clients/default.conf'
+        )}
+      end
+
       describe 'configure /etc/default/amplet2-client' do
         it { should contain_file('/etc/default/amplet2-client').with(
           'ensure' => 'file'
