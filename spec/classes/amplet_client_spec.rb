@@ -62,6 +62,9 @@ describe 'amplet::client' do
         it { should contain_file('/etc/amplet2/schedule.d/schedule').with(
           'ensure' => 'absent'
         )}
+        it { should contain_file('/etc/amplet2/schedule.d').with(
+          'ensure' => 'absent'
+        )}
         it { should contain_file('/etc/amplet2/keys/cacert.pem').with(
           'ensure' => 'absent'
         )}

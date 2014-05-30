@@ -15,6 +15,11 @@ class amplet::client::cleanup {
     path    => '/etc/amplet2/schedule.d/schedule',
   }
 
+  file { '/etc/amplet2/schedule.d':
+    ensure  => absent,
+    path    => '/etc/amplet2/schedule.d',
+  }
+
   file { '/etc/amplet2/keys/cacert.pem':
     ensure  => absent,
     path    => '/etc/amplet2/keys/cacert.pem',
