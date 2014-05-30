@@ -102,7 +102,8 @@ class amplet::client::config {
     mode    => '0600'
   }
 
-  exec { "/usr/sbin/amplet2 -f -c ${config_path}":
+  exec { "/usr/sbin/amplet2 -f":
+    command     => "/usr/sbin/amplet2 -f -c ${config_path}",
     cwd         => "/tmp",
     path        => ["/bin", "/usr/bin", "/usr/sbin"],
     refreshonly => true,
