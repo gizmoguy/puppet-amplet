@@ -22,6 +22,7 @@ class amplet::client::cleanup {
 
   file { '/etc/amplet2/schedule.d':
     ensure => absent,
+    force  => true,
     path   => '/etc/amplet2/schedule.d',
   }
 
