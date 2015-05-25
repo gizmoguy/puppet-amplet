@@ -1,7 +1,8 @@
 # requires
 #   puppetlabs-apt
 class amplet::repo::apt (
-  $repo = 'http://amp.wand.net.nz/debian/',
+  $repo    = 'http://amp.wand.net.nz/debian/',
+  $release = $::lsbdistcodename,
 ) {
 
   validate_string($repo)
@@ -11,7 +12,7 @@ class amplet::repo::apt (
 
   apt::source { 'amplet-repo':
     location    => $repo,
-    release     => $::lsbdistcodename,
+    release     => $release,
     repos       => 'main',
     include_src => false,
     key         => '77002036',
