@@ -1,225 +1,304 @@
-<%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
 
-#
-# ICMP/Traceroute
-#
-
-# amplets
+---
+targets:
+  amplets: &amplets [
 <% File.open(File.expand_path("../amplets",File.dirname(file))) do |fh| -%>
 <% fh.each_line do |line| -%>
-  <%- if line.include? "amp.wand.net.nz" -%>
-    <%- if !line.include? scope.lookupvar("::clientcert") -%>
-<%= line.strip %>:*,icmp,D,0,86400000,30000
-<%= line.strip %>:*,traceroute,D,0,86400000,60000
-    <%- end -%>
-  <%- end -%>
+<%- if line.include? "amp.wand.net.nz" -%>
+<%- if !line.include? scope.lookupvar("::clientcert") -%>
+    <%= line.strip %>,
+<%- end -%>
+<%- end -%>
 <% end -%>
 <% end -%>
+  ]
 
-# NZ
-www.wand.net.nz:*,icmp,D,0,86400000,30000
-www.wand.net.nz:*,traceroute,D,0,86400000,60000
-www.amp.wand.net.nz:*,icmp,D,0,86400000,30000
-www.amp.wand.net.nz:*,traceroute,D,0,86400000,60000
-www.nzherald.co.nz:*,icmp,D,0,86400000,30000
-www.nzherald.co.nz:*,traceroute,D,0,86400000,60000
-www.stuff.co.nz:*,icmp,D,0,86400000,30000
-www.stuff.co.nz:*,traceroute,D,0,86400000,60000
-www.trademe.co.nz:*,icmp,D,0,86400000,30000
-www.trademe.co.nz:*,traceroute,D,0,86400000,60000
-www.tvnz.co.nz:*,icmp,D,0,86400000,30000
-www.tvnz.co.nz:*,traceroute,D,0,86400000,60000
-www.tv3.co.nz:*,icmp,D,0,86400000,30000
-www.tv3.co.nz:*,traceroute,D,0,86400000,60000
-www.xero.com:*,icmp,D,0,86400000,30000
-www.xero.com:*,traceroute,D,0,86400000,60000
-www.mega.co.nz:*,icmp,D,0,86400000,30000
-www.mega.co.nz:*,traceroute,D,0,86400000,60000
-www.quickflix.co.nz:*,icmp,D,0,86400000,30000
-www.quickflix.co.nz:*,traceroute,D,0,86400000,60000
+  nzweb: &nzweb [www.wand.net.nz, www.amp.wand.net.nz, www.nzherald.co.nz,
+        www.stuff.co.nz, www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz,
+        www.xero.co.nz, www.xero.com, www.mega.co.nz, www.quickflix.co.nz,
+        nz.yahoo.com]
 
-# NZ ISP
-www.callplus.co.nz:*,icmp,D,0,86400000,30000
-www.callplus.co.nz:*,traceroute,D,0,86400000,60000
-www.orcon.net.nz:*,icmp,D,0,86400000,30000
-www.orcon.net.nz:*,traceroute,D,0,86400000,60000
-www.iconz.net.nz:*,icmp,D,0,86400000,30000
-www.iconz.net.nz:*,traceroute,D,0,86400000,60000
-www.snap.net.nz:*,icmp,D,0,86400000,30000
-www.snap.net.nz:*,traceroute,D,0,86400000,60000
-www.reannz.co.nz:*,icmp,D,0,86400000,30000
-www.reannz.co.nz:*,traceroute,D,0,86400000,60000
-www.fx.net.nz:*,icmp,D,0,86400000,30000
-www.fx.net.nz:*,traceroute,D,0,86400000,60000
-www.vocus.co.nz:*,icmp,D,0,86400000,30000
-www.vocus.co.nz:*,traceroute,D,0,86400000,60000
-www.voyager.co.nz:*,icmp,D,0,86400000,30000
-www.voyager.co.nz:*,traceroute,D,0,86400000,60000
-www.chorus.co.nz:*,icmp,D,0,86400000,30000
-www.chorus.co.nz:*,traceroute,D,0,86400000,60000
-www.ultrafastfibre.co.nz:*,icmp,D,0,86400000,30000
-www.ultrafastfibre.co.nz:*,traceroute,D,0,86400000,60000
-www.northpowerfibre.co.nz:*,icmp,D,0,86400000,30000
-#www.northpowerfibre.co.nz:*,traceroute,D,0,86400000,60000
-www.enable.net.nz:*,icmp,D,0,86400000,30000
-www.enable.net.nz:*,traceroute,D,0,86400000,60000
-2talk.co.nz:*,icmp,D,0,86400000,30000
-2talk.co.nz:*,traceroute,D,0,86400000,60000
+  nzbanks: &nzbanks [www.anz.co.nz, www.westpac.co.nz, www.asb.co.nz,
+        www.kiwibank.co.nz, www.bnz.co.nz]
 
-# NZ DNS
-ns1.dns.net.nz:*,icmp,D,0,86400000,30000
-ns1.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns2.dns.net.nz:*,icmp,D,0,86400000,30000
-ns2.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns3.dns.net.nz:*,icmp,D,0,86400000,30000
-ns3.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns4.dns.net.nz:*,icmp,D,0,86400000,30000
-ns4.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns5.dns.net.nz:*,icmp,D,0,86400000,30000
-ns5.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns6.dns.net.nz:*,icmp,D,0,86400000,30000
-ns6.dns.net.nz:*,traceroute,D,0,86400000,60000
-ns7.dns.net.nz:*,icmp,D,0,86400000,30000
-ns7.dns.net.nz:*,traceroute,D,0,86400000,60000
+  nzisp: &nzisp [www.callplus.co.nz, www.orcon.net.nz, iconz-webvisions.com,
+        www.snap.net.nz, www.reannz.co.nz, www.fx.net.nz, www.vocus.co.nz,
+        www.voyager.co.nz, www.chorus.co.nz, www.ultrafastfibre.co.nz,
+        www.northpowerfibre.co.nz, www.enable.net.nz, 2talk.co.nz,
+        www.lightwire.co.nz]
 
-# CDN
-download.microsoft.com:*,icmp,D,0,86400000,30000
-download.microsoft.com:*,traceroute,D,0,86400000,60000
-itunes.apple.com:*,icmp,D,0,86400000,30000
-itunes.apple.com:*,traceroute,D,0,86400000,60000
-www.cloudflare.com:*,icmp,D,0,86400000,30000
-www.cloudflare.com:*,traceroute,D,0,86400000,60000
-cachefly.cachefly.net:*,icmp,D,0,86400000,30000
-cachefly.cachefly.net:*,traceroute,D,0,86400000,60000
-client.dropbox.com:*,icmp,D,0,86400000,30000
-client.dropbox.com:*,traceroute,D,0,86400000,60000
-v1.lscache1.c.youtube.com:*,icmp,D,0,86400000,30000
-v1.lscache1.c.youtube.com:*,traceroute,D,0,86400000,60000
-gcm.googleapis.com:*,icmp,D,0,86400000,30000
-gcm.googleapis.com:*,traceroute,D,0,86400000,60000
-a248.e.akamai.net:*,icmp,D,0,86400000,30000
-a248.e.akamai.net:*,traceroute,D,0,86400000,60000
-cloud.google.com:*,icmp,D,0,86400000,30000
-cloud.google.com:*,traceroute,D,0,86400000,60000
-www.googleapis.com:*,icmp,D,0,86400000,30000
-www.googleapis.com:*,traceroute,D,0,86400000,60000
+  nzdns: &nzdns [ns1.dns.net.nz, ns2.dns.net.nz, ns3.dns.net.nz,
+        ns4.dns.net.nz, ns5.dns.net.nz, ns6.dns.net.nz, ns7.dns.net.nz]
 
-# Open DNS
-google-public-dns-a.google.com:*,icmp,D,0,86400000,30000
-google-public-dns-a.google.com:*,traceroute,D,0,86400000,60000
-google-public-dns-b.google.com:*,icmp,D,0,86400000,30000
-google-public-dns-b.google.com:*,traceroute,D,0,86400000,60000
-resolver1.opendns.com:*,icmp,D,0,86400000,30000
-resolver1.opendns.com:*,traceroute,D,0,86400000,60000
-resolver2.opendns.com:*,icmp,D,0,86400000,30000
-resolver2.opendns.com:*,traceroute,D,0,86400000,60000
-a.resolvers.level3.net:*,icmp,D,0,86400000,30000
-a.resolvers.level3.net:*,traceroute,D,0,86400000,60000
-b.resolvers.level3.net:*,icmp,D,0,86400000,30000
-b.resolvers.level3.net:*,traceroute,D,0,86400000,60000
+  cdn: &cdn [download.microsoft.com, itunes.apple.com, www.cloudflare.com,
+        cachefly.cachefly.net, client.dropbox.com, v1.lscache1.c.youtube.com,
+        gcm.googleapis.com, a248.e.akamai.net, cloud.google.com,
+        www.googleapis.com, store.steampowered.com,
+        appldnld.apple.com, secure-appldnld.apple.com]
 
-# International
-www.google.com:*,icmp,D,0,86400000,30000
-www.google.com:*,traceroute,D,0,86400000,60000
-www.youtube.com:*,icmp,D,0,86400000,30000
-www.youtube.com:*,traceroute,D,0,86400000,60000
-www.wikipedia.org:*,icmp,D,0,86400000,30000
-www.wikipedia.org:*,traceroute,D,0,86400000,60000
-www.netflix.com:*,icmp,D,0,86400000,30000
-www.netflix.com:*,traceroute,D,0,86400000,60000
-www.facebook.com:*,icmp,D,0,86400000,30000
-www.facebook.com:*,traceroute,D,0,86400000,60000
-www.bing.com:*,icmp,D,0,86400000,30000
-www.bing.com:*,traceroute,D,0,86400000,60000
-www.twitter.com:*,icmp,D,0,86400000,30000
-www.twitter.com:*,traceroute,D,0,86400000,60000
+  opendns: &opendns [google-public-dns-a.google.com,
+        google-public-dns-b.google.com, resolver1.opendns.com,
+        resolver2.opendns.com, a.resolvers.level3.net, b.resolvers.level3.net]
 
-# Analytics
-www.google-analytics.com:*,icmp,D,0,86400000,30000
-www.google-analytics.com:*,traceroute,D,0,86400000,60000
+  intweb: &intweb [www.google.com, www.youtube.com, www.wikipedia.org,
+        www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
+        www.google-analytics.com, www.tumblr.com, imgur.com, www.reddit.com]
 
-# Root DNS
-a.root-servers.net:*,icmp,D,0,86400000,30000
-a.root-servers.net:*,traceroute,D,0,86400000,60000
-b.root-servers.net:*,icmp,D,0,86400000,30000
-b.root-servers.net:*,traceroute,D,0,86400000,60000
-c.root-servers.net:*,icmp,D,0,86400000,30000
-c.root-servers.net:*,traceroute,D,0,86400000,60000
-d.root-servers.net:*,icmp,D,0,86400000,30000
-d.root-servers.net:*,traceroute,D,0,86400000,60000
-e.root-servers.net:*,icmp,D,0,86400000,30000
-e.root-servers.net:*,traceroute,D,0,86400000,60000
-f.root-servers.net:*,icmp,D,0,86400000,30000
-f.root-servers.net:*,traceroute,D,0,86400000,60000
-g.root-servers.net:*,icmp,D,0,86400000,30000
-g.root-servers.net:*,traceroute,D,0,86400000,60000
-h.root-servers.net:*,icmp,D,0,86400000,30000
-h.root-servers.net:*,traceroute,D,0,86400000,60000
-i.root-servers.net:*,icmp,D,0,86400000,30000
-i.root-servers.net:*,traceroute,D,0,86400000,60000
-j.root-servers.net:*,icmp,D,0,86400000,30000
-j.root-servers.net:*,traceroute,D,0,86400000,60000
-k.root-servers.net:*,icmp,D,0,86400000,30000
-k.root-servers.net:*,traceroute,D,0,86400000,60000
-l.root-servers.net:*,icmp,D,0,86400000,30000
-l.root-servers.net:*,traceroute,D,0,86400000,60000
-m.root-servers.net:*,icmp,D,0,86400000,30000
-m.root-servers.net:*,traceroute,D,0,86400000,60000
+  australia: &australia [www.iinet.com.au, www.9news.com.au, www.smh.com.au,
+        www.telstra.com.au, www.optus.com.au, www.gumtree.com.au,
+        www.abc.net.au, www.commbank.com.au, www.nab.com.au,
+        www.westpac.com.au, www.whirlpool.net.au]
 
-# RIR
-arin.net:*,icmp,D,0,86400000,30000
-arin.net:*,traceroute,D,0,86400000,60000
-afrinic.net:*,icmp,D,0,86400000,30000
-afrinic.net:*,traceroute,D,0,86400000,60000
-apnic.net:*,icmp,D,0,86400000,30000
-apnic.net:*,traceroute,D,0,86400000,60000
-lacnic.net:*,icmp,D,0,86400000,30000
-lacnic.net:*,traceroute,D,0,86400000,60000
-pri.authdns.ripe.net:*,icmp,D,0,86400000,30000
-pri.authdns.ripe.net:*,traceroute,D,0,86400000,60000
+  rootdns: &rootdns [a.root-servers.net, b.root-servers.net, c.root-servers.net,
+        d.root-servers.net, e.root-servers.net, f.root-servers.net,
+        g.root-servers.net, h.root-servers.net, i.root-servers.net,
+        j.root-servers.net, k.root-servers.net, l.root-servers.net,
+        m.root-servers.net]
 
-#
-# DNS
-#
-<%- if scope.lookupvar("::nameserver0") %>
-<% end -%>
+  rir: &rir [arin.net, afrinic.net, apnic.net, lacnic.net,
+        pri.authdns.ripe.net]
 
-# Recursive
-google-public-dns-a.google.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
-google-public-dns-a.google.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
-google-public-dns-b.google.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
-google-public-dns-b.google.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
-resolver1.opendns.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
-resolver1.opendns.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
-resolver2.opendns.com:*,dns,D,0,86400000,60000,-q google.com -r -t A
-resolver2.opendns.com:*,dns,D,0,86400000,60000,-q example.org -r -t A
-a.resolvers.level3.net:*,dns,D,0,86400000,60000,-q google.com -r -t A
-a.resolvers.level3.net:*,dns,D,0,86400000,60000,-q example.org -r -t A
-b.resolvers.level3.net:*,dns,D,0,86400000,60000,-q google.com -r -t A
-b.resolvers.level3.net:*,dns,D,0,86400000,60000,-q example.org -r -t A
+  tcp80: &tcp80 [www.amp.wand.net.nz, www.metservice.com, www.reannz.co.nz,
+        www.fx.net.nz, www.ultrafastfibre.co.nz, www.enable.net.nz]
 
-# Authoritative
-ns1.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns2.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns3.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns4.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns5.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns6.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-ns7.dns.net.nz:*,dns,D,0,86400000,60000,-q dns.net.nz -t NS
-a.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-b.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-c.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-d.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-e.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-f.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-g.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-h.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-i.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-j.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-k.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-l.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-m.root-servers.net:*,dns,D,30000,86400000,1200000, -q example.com -t NS
-ns1.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
-ns2.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
-ns3.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
-ns4.trademe.co.nz:*,dns,D,30000,86400000,1200000, -q trademe.co.nz -t A
+  tcp443: &tcp443 [www.wand.net.nz, www.nzherald.co.nz, www.stuff.co.nz,
+        www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz, www.xero.com,
+        www.xero.co.nz, www.mega.co.nz, www.quickflix.co.nz,
+        www.callplus.co.nz, www.orcon.net.nz, iconz-webvisions.com,
+        www.snap.net.nz, www.vocus.co.nz, www.voyager.co.nz, www.chorus.co.nz,
+        www.northpowerfibre.co.nz, 2talk.co.nz, download.microsoft.com,
+        itunes.apple.com, www.cloudflare.com, cachefly.cachefly.net,
+        client.dropbox.com, v1.lscache1.c.youtube.com,
+        a248.e.akamai.net, cloud.google.com, www.google.com, www.youtube.com,
+        www.wikipedia.org, www.apple.com, www.espncricinfo.com,
+        www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
+        www.google-analytics.com, www.bbc.co.uk, arin.net, afrinic.net,
+        apnic.net, lacnic.net, www.amazon.com, www.googleapis.com,
+        gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
+        www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
+        www.imdb.com, www.ebay.com, instagram.com]
+
+  mail: &mail [imap.gmail.com, outlook.office365.com]
+
+  localdns: &localdns [localdns1, localdns2]
+
+tests:
+- args: -s 84
+  start: 0
+  end: 86400
+  frequency: 60
+  period: day
+  test: icmp
+  target:
+  - *amplets
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *localdns
+
+- args: -s 60 -a -b -f
+  start: 20
+  end: 86400
+  frequency: 120
+  period: day
+  test: traceroute
+  target:
+  - *amplets
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *nzbanks
+
+- args: -s 60 -a -f
+  start: 80
+  end: 86400
+  frequency: 600
+  period: day
+  test: traceroute
+  target:
+  - *amplets
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *nzbanks
+
+- args: -q google.com -r -t A
+  start: 2
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *opendns
+  - *localdns
+
+- args: -q example.org -r -t A
+  start: 4
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *opendns
+  - *localdns
+
+- args: -q dns.net.nz -t NS
+  start: 6
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *nzdns
+
+- args: -q example.com -t NS
+  start: 8
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *rootdns
+
+- args: -u http://wand.net.nz/
+  start: 35
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [wand.net.nz]
+
+- args: -u http://www.amazon.com
+  start: 45 
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.amazon.com]
+
+- args: -u http://www.nzherald.co.nz
+  start: 95
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.nzherald.co.nz]
+
+- args: -u http://www.stuff.co.nz
+  start: 105
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.stuff.co.nz]
+
+- args: -u http://www.trademe.co.nz
+  start: 155
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.trademe.co.nz]
+
+- args: -u http://www.metservice.com/national/home/
+  start: 165
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.metservice.com]
+
+- args: -u http://www.google.co.nz
+  start: 215
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.google.co.nz]
+
+- args: -u https://twitter.com/
+  start: 225
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.apple.com]
+
+- args: -u https://www.facebook.com/
+  start: 275
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.facebook.com]
+
+- args: -u http://www.bing.com/
+  start: 285
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.bing.com]
+
+- args: -u https://www.wikipedia.org/
+  start: 335
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: [www.wikipedia.org]
+
+- args: -P 53
+  start: 10
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *nzdns
+  - *rootdns
+  - *opendns
+  - *localdns
+
+- args: -P 80
+  start: 12
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *tcp80
+
+- args: -P 443
+  start: 14
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *tcp443
+  - *australia
+  - *nzbanks
+
+...
