@@ -100,6 +100,7 @@ describe 'amplet::client' do
         it 'should configure client options' do
           should contain_file('client.conf') \
             .with_content(/ampname = foo\.bar/) \
+            .with_content(/packetdelay = 1000/) \
             .with_content(/port\s*=\s*5671/) \
             .with_content(/ssl\s*=\s*true/) \
             .with_content(/cacert\s*=\s*\/etc\/amplet2\/keys\/foo.bar\/cacert.pem/) \

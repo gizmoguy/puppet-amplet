@@ -11,6 +11,7 @@ class amplet::client::config {
   $schedule_config     = $amplet::client::schedule_config
   $schedule_path       = $amplet::client::schedule_path
   $keys_path           = $amplet::client::keys_path
+  $packetdelay         = $amplet::client::packetdelay
 
   file { '/etc/default/amplet2-client':
     ensure  => file,

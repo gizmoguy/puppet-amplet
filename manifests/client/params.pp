@@ -28,5 +28,6 @@ class amplet::client::params {
   $cacert           = ''
   $cert             = ''
   $key              = ''
+  $packetdelay      = 1000
 
 }
