@@ -6,7 +6,7 @@ describe 'amplet::client' do
     let(:facts) {{ :osfamily => 'Unsupported' }}
 
     it 'it fails' do
-      expect { subject }.to raise_error(/not supported on an Unsupported/)
+      expect { should contain_class('amplet::client') }.to raise_error(/is not supported on an Unsupported based system/)
     end
   end
 
@@ -158,10 +158,6 @@ describe 'amplet::client' do
           'ensure' => 'file',
           'path'   => '/etc/amplet2/schedules/foo.bar/puppet.sched'
         )}
-        it 'should configure local dns tests' do
-          should contain_file('puppet.sched') \
-            .with_content(/google-public-dns-a\.google\.com:\*,dns/)
-        end
       end
 
       describe 'execute amp configure script' do
