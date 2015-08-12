@@ -6,7 +6,7 @@ describe 'amplet::client' do
     let(:facts) {{ :osfamily => 'Unsupported' }}
 
     it 'it fails' do
-      expect { should contain_class('amplet::client') }.to raise_error(/is not supported on an Unsupported based system/)
+      expect { subject.call }.to raise_error(/is not supported on an Unsupported based system/)
     end
   end
 
