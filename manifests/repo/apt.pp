@@ -15,7 +15,7 @@ class amplet::repo::apt (
     release     => $release,
     repos       => 'main',
     include_src => false,
-    key         => '77002036',
+    key         => 'A9765B25FA4AA5AA1D6D421C86CE832077002036',
     key_content => template('amplet/repo.pub.key.erb'),
   }
 }
