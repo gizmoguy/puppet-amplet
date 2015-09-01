@@ -1,8 +1,8 @@
 <%= ERB.new(File.read(File.expand_path("../_header.erb",File.dirname(file)))).result(binding) -%>
 
 <%- if scope.lookupvar("::nameserver0") -%>
-localdns1 <%= @nameserver0 %>
+localdns <%= @nameserver0 %>
 <%- end -%>
 <%- if scope.lookupvar("::nameserver1") -%>
-localdns2 <%= @nameserver1 %>
+localdns <%= @nameserver1 %>
 <%- end -%>
