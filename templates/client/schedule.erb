@@ -106,6 +106,7 @@ tests:
   - *mail
   - *localdns
   - *localdns_split
+  - *nzbanks
 
 - args: -s 60 -a -b -f
   start: 20
@@ -195,15 +196,15 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [wand.net.nz]
+  target: localhost
 
 - args: -u http://www.amazon.com
-  start: 45 
+  start: 45
   end: 86400
   frequency: 900
   period: day
   test: http
-  target: [www.amazon.com]
+  target: localhost
 
 - args: -u http://www.nzherald.co.nz
   start: 95
@@ -211,7 +212,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.nzherald.co.nz]
+  target: localhost
 
 - args: -u http://www.stuff.co.nz
   start: 105
@@ -219,7 +220,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.stuff.co.nz]
+  target: localhost
 
 - args: -u http://www.trademe.co.nz
   start: 155
@@ -227,7 +228,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.trademe.co.nz]
+  target: localhost
 
 - args: -u http://www.metservice.com/national/home/
   start: 165
@@ -235,7 +236,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.metservice.com]
+  target: localhost
 
 - args: -u http://www.google.co.nz
   start: 215
@@ -243,7 +244,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.google.co.nz]
+  target: localhost
 
 - args: -u https://twitter.com/
   start: 225
@@ -251,7 +252,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.apple.com]
+  target: localhost
 
 - args: -u https://www.facebook.com/
   start: 275
@@ -259,7 +260,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.facebook.com]
+  target: localhost
 
 - args: -u http://www.bing.com/
   start: 285
@@ -267,7 +268,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.bing.com]
+  target: localhost
 
 - args: -u https://www.wikipedia.org/
   start: 335
@@ -275,7 +276,7 @@ tests:
   frequency: 900
   period: day
   test: http
-  target: [www.wikipedia.org]
+  target: localhost
 
 - args: -P 53
   start: 10
