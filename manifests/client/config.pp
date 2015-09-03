@@ -87,7 +87,11 @@ class amplet::client::config {
     content => template('amplet/client/cacert.pem.erb'),
     owner   => 'rabbitmq',
     group   => '0',
-    mode    => '0644'
+    mode    => '0644',
+    notify  => [
+      Service['rabbitmq-server'],
+      Class['amplet::client::service']
+    ]
   }
 
   file { 'cert.pem':
@@ -96,7 +100,11 @@ class amplet::client::config {
     content => template('amplet/client/cert.pem.erb'),
     owner   => 'rabbitmq',
     group   => '0',
-    mode    => '0644'
+    mode    => '0644',
+    notify  => [
+      Service['rabbitmq-server'],
+      Class['amplet::client::service']
+    ]
   }
 
   file { 'key.pem':
@@ -105,17 +113,11 @@ class amplet::client::config {
     content => template('amplet/client/key.pem.erb'),
     owner   => 'rabbitmq',
     group   => '0',
-    mode    => '0600'
-  }
-
-  exec { "/usr/sbin/amplet2 -f":
-    command     => "/usr/sbin/amplet2 -f -c ${config_path}",
-    cwd         => "/tmp",
-    path        => ["/bin", "/usr/bin", "/usr/sbin"],
-    environment => "HOME=/tmp",
-    refreshonly => true,
-    subscribe   => File['client.conf'],
-    notify      => Class['amplet::client::service']
+    mode    => '0600',
+    notify  => [
+      Service['rabbitmq-server'],
+      Class['amplet::client::service']
+    ]
   }
 
 }

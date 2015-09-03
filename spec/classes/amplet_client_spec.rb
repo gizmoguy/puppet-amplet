@@ -120,19 +120,31 @@ describe 'amplet::client' do
           'ensure' => 'file',
           'path'   => '/etc/amplet2/keys/foo.bar/cacert.pem',
           'owner'  => 'rabbitmq',
-          'mode'   => '0644'
+          'mode'   => '0644',
+          'notify' => [
+            'Service[rabbitmq-server]',
+            'Class[Amplet::Client::Service]'
+          ]
         )}
         it { should contain_file('cert.pem').with(
           'ensure' => 'file',
           'path'   => '/etc/amplet2/keys/foo.bar/cert.pem',
           'owner'  => 'rabbitmq',
-          'mode'   => '0644'
+          'mode'   => '0644',
+          'notify' => [
+            'Service[rabbitmq-server]',
+            'Class[Amplet::Client::Service]'
+          ]
         )}
         it { should contain_file('key.pem').with(
           'ensure' => 'file',
           'path'   => '/etc/amplet2/keys/foo.bar/key.pem',
           'owner'  => 'rabbitmq',
-          'mode'   => '0600'
+          'mode'   => '0600',
+          'notify' => [
+            'Service[rabbitmq-server]',
+            'Class[Amplet::Client::Service]'
+          ]
         )}
       end
 
