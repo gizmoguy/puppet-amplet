@@ -160,12 +160,6 @@ describe 'amplet::client' do
         )}
       end
 
-      describe 'execute amp configure script' do
-        it { should contain_exec('/usr/sbin/amplet2 -f').with(
-          'command' => '/usr/sbin/amplet2 -f -c /etc/amplet2/clients/foo.bar.conf'
-        )}
-      end
-
     end
   end
 
