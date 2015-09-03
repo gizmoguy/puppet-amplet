@@ -83,6 +83,8 @@ targets:
 
   localdns: &localdns [localdns]
 
+  localdns_split: &localdns_split [localdns1, localdns2]
+
 tests:
 - args: -s 84
   start: 0
@@ -103,6 +105,7 @@ tests:
   - *australia
   - *mail
   - *localdns
+  - *localdns_split
 
 - args: -s 60 -a -b -f
   start: 20
@@ -122,6 +125,8 @@ tests:
   - *rir
   - *australia
   - *mail
+  - *localdns
+  - *localdns_split
   - *nzbanks
 
 - args: -s 60 -a -f
@@ -142,6 +147,8 @@ tests:
   - *rir
   - *australia
   - *mail
+  - *localdns
+  - *localdns_split
   - *nzbanks
 
 - args: -q google.com -r -t A
@@ -281,6 +288,7 @@ tests:
   - *rootdns
   - *opendns
   - *localdns
+  - *localdns_split
 
 - args: -P 80
   start: 12
