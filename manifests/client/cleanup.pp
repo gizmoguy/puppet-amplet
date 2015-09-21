@@ -1,5 +1,10 @@
 class amplet::client::cleanup {
 
+  file { '/etc/rsyslog.d/90-amplet2.conf':
+    ensure => absent,
+    path   => '/etc/rsyslog.d/90-amplet2.conf',
+  }
+
   file { '/etc/amplet2/client.conf':
     ensure => absent,
     path   => '/etc/amplet2/client.conf',
