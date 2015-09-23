@@ -16,6 +16,7 @@ class amplet::client (
   $cert             = $amplet::client::params::cert,
   $key              = $amplet::client::params::key,
   $packetdelay      = $amplet::client::params::packetdelay,
+  $nameservers      = $amplet::client::params::nameservers,
 ) inherits amplet::client::params {
 
   validate_string($ampname)
@@ -34,6 +35,7 @@ class amplet::client (
   validate_string($cert)
   validate_string($key)
   validate_string($packetdelay)
+  validate_array($nameservers)
 
   include '::amplet::client::cleanup'
   include '::amplet::client::install'

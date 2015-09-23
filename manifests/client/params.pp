@@ -29,5 +29,6 @@ class amplet::client::params {
   $cert             = ''
   $key              = ''
   $packetdelay      = 1000
+  $nameservers      = []
 
 }

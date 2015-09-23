@@ -2,6 +2,9 @@
 
 ampname = <%= @ampname %>
 packetdelay = <%= @packetdelay %>
+<% if !@nameservers.empty? -%>
+nameservers = { <%= @nameservers.join(', ') %> }
+<% end -%>
 
 collector {
   vialocal   = true

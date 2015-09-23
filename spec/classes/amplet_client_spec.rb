@@ -41,6 +41,10 @@ describe 'amplet::client' do
         :nameserver0 => '8.8.8.8'
       }}
 
+      let(:params) {{
+        :nameservers => ['8.8.8.8']
+      }}
+
       it { should contain_class('amplet::client::install') }
       it { should contain_class('amplet::client::config') }
       it { should contain_class('amplet::client::service') }
@@ -101,6 +105,7 @@ describe 'amplet::client' do
           should contain_file('client.conf') \
             .with_content(/ampname = foo\.bar/) \
             .with_content(/packetdelay = 1000/) \
+            .with_content(/nameservers = { 8.8.8.8 }/) \
             .with_content(/port\s*=\s*5671/) \
             .with_content(/ssl\s*=\s*true/) \
             .with_content(/cacert\s*=\s*\/etc\/amplet2\/keys\/foo.bar\/cacert.pem/) \
