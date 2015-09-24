@@ -36,13 +36,14 @@ describe 'amplet::client' do
       let(:facts) {{
         :osfamily => distro,
         :lsbdistid => distro,
-        :lsbdistcodename => 'squeeze',
+        :lsbdistcodename => 'wheezy',
         :clientcert => 'foo.bar',
         :nameserver0 => '8.8.8.8'
       }}
 
       let(:params) {{
-        :nameservers => ['8.8.8.8']
+        :nameservers => ['8.8.8.8'],
+        :package_ensure => 'installed'
       }}
 
       it { should contain_class('amplet::client::install') }
@@ -177,6 +178,22 @@ describe 'amplet::client' do
         )}
       end
 
+    end
+
+    context "on #{distro} tracking latest amplet version" do
+      let(:facts) {{
+        :osfamily => distro,
+        :lsbdistid => distro,
+        :lsbdistcodename => 'wheezy',
+      }}
+
+      let(:params) {{
+        :package_ensure => 'latest'
+      }}
+
+      describe 'exec apt-get update' do
+        it { should contain_exec('apt-update') }
+      end
     end
   end
 
