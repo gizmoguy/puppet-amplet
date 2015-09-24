@@ -179,22 +179,6 @@ describe 'amplet::client' do
       end
 
     end
-
-    context "on #{distro} tracking latest amplet version" do
-      let(:facts) {{
-        :osfamily => distro,
-        :lsbdistid => distro,
-        :lsbdistcodename => 'wheezy',
-      }}
-
-      let(:params) {{
-        :package_ensure => 'latest'
-      }}
-
-      describe 'exec apt-get update' do
-        it { should contain_exec('apt-update') }
-      end
-    end
   end
 
 end
