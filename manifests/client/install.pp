@@ -11,7 +11,6 @@ class amplet::client::install {
     ensure   => $package_ensure,
     name     => 'amplet2-client',
     provider => $package_provider,
-    notify   => Class['amplet::client::service'],
   }
 
   Exec["apt-update"] -> Package <| ensure == latest |>
