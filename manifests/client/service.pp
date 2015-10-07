@@ -6,7 +6,7 @@ class amplet::client::service {
     hasstatus  => true,
     hasrestart => true,
     name       => 'amplet2-client',
-    require    => Class[rabbitmq::service]
+    require    => Service['rabbitmq-server']
   }
 
 }
