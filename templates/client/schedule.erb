@@ -16,17 +16,17 @@ targets:
 
   nzweb: &nzweb [www.wand.net.nz, www.amp.wand.net.nz, www.nzherald.co.nz,
         www.stuff.co.nz, www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz,
-        www.xero.co.nz, www.xero.com, www.mega.co.nz, www.quickflix.co.nz,
-        nz.yahoo.com]
+        www.xero.com, www.mega.co.nz, www.quickflix.co.nz, nz.yahoo.com,
+        www.metservice.com]
 
   nzbanks: &nzbanks [www.anz.co.nz, www.westpac.co.nz, www.asb.co.nz,
         www.kiwibank.co.nz, www.bnz.co.nz]
 
-  nzisp: &nzisp [www.callplus.co.nz, www.orcon.net.nz, iconz-webvisions.com,
-        www.snap.net.nz, www.reannz.co.nz, www.fx.net.nz, www.vocus.co.nz,
+  nzisp: &nzisp [www.callplus.co.nz, www.orcon.net.nz, www.iconz.net,
+        www.reannz.co.nz, www.fx.net.nz, www.vocus.co.nz, www.vodafone.co.nz,
         www.voyager.co.nz, www.chorus.co.nz, www.ultrafastfibre.co.nz,
-        www.northpowerfibre.co.nz, www.enable.net.nz, 2talk.co.nz,
-        www.lightwire.co.nz]
+        www.northpowerfibre.co.nz, www.enable.net.nz, www.2talk.co.nz,
+        www.lightwire.co.nz, www.2degreesmobile.co.nz, www.spark.co.nz]
 
   nzdns: &nzdns [ns1.dns.net.nz, ns2.dns.net.nz, ns3.dns.net.nz,
         ns4.dns.net.nz, ns5.dns.net.nz, ns6.dns.net.nz, ns7.dns.net.nz]
@@ -34,7 +34,7 @@ targets:
   cdn: &cdn [download.microsoft.com, itunes.apple.com, www.cloudflare.com,
         cachefly.cachefly.net, client.dropbox.com, v1.lscache1.c.youtube.com,
         gcm.googleapis.com, a248.e.akamai.net, cloud.google.com,
-        www.googleapis.com, store.steampowered.com,
+        www.googleapis.com, store.steampowered.com, www.google-analytics.com,
         appldnld.apple.com, secure-appldnld.apple.com]
 
   opendns: &opendns [google-public-dns-a.google.com,
@@ -43,9 +43,9 @@ targets:
 
   intweb: &intweb [www.google.com, www.youtube.com, www.wikipedia.org,
         www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
-        www.google-analytics.com, www.tumblr.com, imgur.com, www.reddit.com]
+        www.tumblr.com, imgur.com, www.reddit.com]
 
-  australia: &australia [www.iinet.com.au, www.9news.com.au, www.smh.com.au,
+  australia: &australia [www.iinet.net.au, www.9news.com.au, www.smh.com.au,
         www.telstra.com.au, www.optus.com.au, www.gumtree.com.au,
         www.abc.net.au, www.commbank.com.au, www.nab.com.au,
         www.westpac.com.au, www.whirlpool.net.au]
@@ -59,15 +59,17 @@ targets:
   rir: &rir [arin.net, afrinic.net, apnic.net, lacnic.net,
         pri.authdns.ripe.net]
 
-  tcp80: &tcp80 [www.amp.wand.net.nz, www.metservice.com, www.reannz.co.nz,
-        www.fx.net.nz, www.ultrafastfibre.co.nz, www.enable.net.nz]
+  tcp80: &tcp80 [www.amp.wand.net.nz, www.metservice.com,
+        www.fx.net.nz, www.ultrafastfibre.co.nz, www.enable.net.nz,
+        appldnld.apple.com, www.9news.com.au, www.smh.com.au, www.abc.net.au,
+        www.gumtree.com.au, www.optus.com.au]
 
   tcp443: &tcp443 [www.wand.net.nz, www.nzherald.co.nz, www.stuff.co.nz,
         www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz, www.xero.com,
-        www.xero.co.nz, www.mega.co.nz, www.quickflix.co.nz,
-        www.callplus.co.nz, www.orcon.net.nz, iconz-webvisions.com,
-        www.snap.net.nz, www.vocus.co.nz, www.voyager.co.nz, www.chorus.co.nz,
-        www.northpowerfibre.co.nz, 2talk.co.nz, download.microsoft.com,
+        www.mega.co.nz, www.quickflix.co.nz, nz.yahoo.com, www.reannz.co.nz,
+        www.callplus.co.nz, www.orcon.net.nz, www.iconz.net, www.chorus.co.nz,
+        www.2degreesmobile.co.nz, www.vocus.co.nz, www.voyager.co.nz,
+        www.northpowerfibre.co.nz, www.2talk.co.nz, download.microsoft.com,
         itunes.apple.com, www.cloudflare.com, cachefly.cachefly.net,
         client.dropbox.com, v1.lscache1.c.youtube.com,
         a248.e.akamai.net, cloud.google.com, www.google.com, www.youtube.com,
@@ -77,7 +79,9 @@ targets:
         apnic.net, lacnic.net, www.amazon.com, www.googleapis.com,
         gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
         www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
-        www.imdb.com, www.ebay.com, instagram.com]
+        www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
+        www.tumblr.com, www.reddit.com, imgur.com, www.whirlpool.net.au,
+        www.iinet.net.au, www.telstra.com.au]
 
   mail: &mail [imap.gmail.com, outlook.office365.com]
 
