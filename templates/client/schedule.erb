@@ -56,27 +56,26 @@ targets:
         j.root-servers.net, k.root-servers.net, l.root-servers.net,
         m.root-servers.net]
 
-  rir: &rir [arin.net, afrinic.net, apnic.net, lacnic.net,
-        pri.authdns.ripe.net]
+  rir: &rir [arin.net, afrinic.net, apnic.net, lacnic.net, ripe.net]
 
   tcp80: &tcp80 [www.amp.wand.net.nz, www.metservice.com,
         www.fx.net.nz, www.ultrafastfibre.co.nz, www.enable.net.nz,
         appldnld.apple.com, www.9news.com.au, www.smh.com.au, www.abc.net.au,
-        www.gumtree.com.au, www.optus.com.au]
+        www.gumtree.com.au, www.optus.com.au, www.vocus.co.nz,
+        www.northpowerfibre.co.nz]
 
   tcp443: &tcp443 [www.wand.net.nz, www.nzherald.co.nz, www.stuff.co.nz,
         www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz, www.xero.com,
         www.mega.co.nz, www.quickflix.co.nz, nz.yahoo.com, www.reannz.co.nz,
         www.callplus.co.nz, www.orcon.net.nz, www.iconz.net, www.chorus.co.nz,
-        www.2degreesmobile.co.nz, www.vocus.co.nz, www.voyager.co.nz,
-        www.northpowerfibre.co.nz, www.2talk.co.nz, download.microsoft.com,
+        www.2degreesmobile.co.nz, www.voyager.co.nz, www.2talk.co.nz,
         itunes.apple.com, www.cloudflare.com, cachefly.cachefly.net,
-        client.dropbox.com, v1.lscache1.c.youtube.com,
+        client.dropbox.com, v1.lscache1.c.youtube.com, download.microsoft.com,
         a248.e.akamai.net, cloud.google.com, www.google.com, www.youtube.com,
         www.wikipedia.org, www.apple.com, www.espncricinfo.com,
         www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
         www.google-analytics.com, www.bbc.co.uk, arin.net, afrinic.net,
-        apnic.net, lacnic.net, www.amazon.com, www.googleapis.com,
+        apnic.net, lacnic.net, ripe.net, www.amazon.com, www.googleapis.com,
         gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
         www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
         www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
@@ -314,5 +313,14 @@ tests:
   - *tcp443
   - *australia
   - *nzbanks
+
+- args: -P 993
+  start: 16
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *mail
 
 ...
