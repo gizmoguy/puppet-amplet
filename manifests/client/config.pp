@@ -78,7 +78,7 @@ class amplet::client::config {
     path    => $keys_path,
     owner   => '0',
     group   => 'rabbitmq',
-    mode    => '0750'
+    mode    => '2750'
   }
 
   file { 'cacert.pem':
