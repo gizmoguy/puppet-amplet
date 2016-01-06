@@ -76,17 +76,17 @@ class amplet::client::config {
   file { $keys_path:
     ensure  => directory,
     path    => $keys_path,
-    owner   => 'rabbitmq',
-    group   => '0',
-    mode    => '0700'
+    owner   => '0',
+    group   => 'rabbitmq',
+    mode    => '0750'
   }
 
   file { 'cacert.pem':
     ensure  => file,
     path    => "${keys_path}/cacert.pem",
     content => template('amplet/client/cacert.pem.erb'),
-    owner   => 'rabbitmq',
-    group   => '0',
+    owner   => '0',
+    group   => 'rabbitmq',
     mode    => '0644',
     notify  => [
       Service['rabbitmq-server'],
@@ -98,8 +98,8 @@ class amplet::client::config {
     ensure  => file,
     path    => "${keys_path}/cert.pem",
     content => template('amplet/client/cert.pem.erb'),
-    owner   => 'rabbitmq',
-    group   => '0',
+    owner   => '0',
+    group   => 'rabbitmq',
     mode    => '0644',
     notify  => [
       Service['rabbitmq-server'],
@@ -111,9 +111,9 @@ class amplet::client::config {
     ensure  => file,
     path    => "${keys_path}/key.pem",
     content => template('amplet/client/key.pem.erb'),
-    owner   => 'rabbitmq',
-    group   => '0',
-    mode    => '0600',
+    owner   => '0',
+    group   => 'rabbitmq',
+    mode    => '0640',
     notify  => [
       Service['rabbitmq-server'],
       Class['amplet::client::service']
