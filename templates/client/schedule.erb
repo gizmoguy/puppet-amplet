@@ -31,12 +31,17 @@ targets:
   nzdns: &nzdns [ns1.dns.net.nz, ns2.dns.net.nz, ns3.dns.net.nz,
         ns4.dns.net.nz, ns5.dns.net.nz, ns6.dns.net.nz, ns7.dns.net.nz]
 
+  nzmirror: &nzmirror [cdn-fastly.deb.debian.org, ftp.citylink.co.nz,
+        mirror.akl.tmnetwork.co.nz, mirror.wlg.tmnetwork.co.nz,
+        ftp.slingshot.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
+        ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
+        nz.archive.ubuntu.com, ftp.nz.debian.org]
+
   cdn: &cdn [download.microsoft.com, itunes.apple.com, www.cloudflare.com,
         cachefly.cachefly.net, client.dropbox.com, v1.lscache1.c.youtube.com,
         gcm.googleapis.com, a248.e.akamai.net, cloud.google.com,
         www.googleapis.com, store.steampowered.com, www.google-analytics.com,
-        appldnld.apple.com, secure-appldnld.apple.com,
-        cdn-fastly.deb.debian.org]
+        appldnld.apple.com, secure-appldnld.apple.com]
 
   opendns: &opendns [google-public-dns-a.google.com,
         google-public-dns-b.google.com, resolver1.opendns.com,
@@ -81,7 +86,13 @@ targets:
         www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
         www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
         www.tumblr.com, www.reddit.com, imgur.com, www.whirlpool.net.au,
-        www.iinet.net.au, www.telstra.com.au, cdn-fastly.deb.debian.org]
+        www.iinet.net.au, www.telstra.com.au, cdn-fastly.deb.debian.org,
+        ftp.slingshot.co.nz]
+
+  ftp: &ftp [ftp.citylink.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
+        ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz]
+
+  rsync: &rsync [mirror.akl.tmnetwork.co.nz, mirror.wlg.tmnetwork.co.nz]
 
   mail: &mail [imap.gmail.com, outlook.office365.com]
 
@@ -101,6 +112,7 @@ tests:
   - *nzweb
   - *nzisp
   - *nzdns
+  - *nzmirror
   - *cdn
   - *opendns
   - *intweb
@@ -123,6 +135,7 @@ tests:
   - *nzweb
   - *nzisp
   - *nzdns
+  - *nzmirror
   - *cdn
   - *opendns
   - *intweb
@@ -145,6 +158,7 @@ tests:
   - *nzweb
   - *nzisp
   - *nzdns
+  - *nzmirror
   - *cdn
   - *opendns
   - *intweb
@@ -323,5 +337,23 @@ tests:
   test: tcpping
   target:
   - *mail
+
+- args: -P 21
+  start: 18
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *ftp
+
+- args: -P 873
+  start: 20
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *rsync
 
 ...
