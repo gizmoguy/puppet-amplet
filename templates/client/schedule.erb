@@ -43,6 +43,14 @@ targets:
         www.googleapis.com, store.steampowered.com, www.google-analytics.com,
         appldnld.apple.com, secure-appldnld.apple.com]
 
+  aws: &aws [us-east-1.ec2.amazonaws.com, us-east-2.ec2.amazonaws.com,
+        us-west-1.ec2.amazonaws.com, us-west-2.ec2.amazonaws.com,
+        ca-central-1.ec2.amazonaws.com, eu-west-1.ec2.amazonaws.com,
+        eu-central-1.ec2.amazonaws.com, eu-west-2.ec2.amazonaws.com,
+        ap-northeast-1.ec2.amazonaws.com, ap-northeast-2.ec2.amazonaws.com,
+        ap-southeast-1.ec2.amazonaws.com, ap-southeast-2.ec2.amazonaws.com,
+        ap-south-1.ec2.amazonaws.com, sa-east-1.ec2.amazonaws.com]
+
   opendns: &opendns [google-public-dns-a.google.com,
         google-public-dns-b.google.com, resolver1.opendns.com,
         resolver2.opendns.com, a.resolvers.level3.net, b.resolvers.level3.net]
@@ -115,6 +123,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
@@ -138,6 +147,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
@@ -161,6 +171,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
