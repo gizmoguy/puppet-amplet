@@ -57,7 +57,7 @@ targets:
 
   intweb: &intweb [www.google.com, www.youtube.com, www.wikipedia.org,
         www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
-        www.tumblr.com, imgur.com, www.reddit.com]
+        www.tumblr.com, imgur.com, www.reddit.com, www.twitch.tv]
 
   australia: &australia [www.iinet.net.au, www.9news.com.au, www.smh.com.au,
         www.telstra.com.au, www.optus.com.au, www.gumtree.com.au,
@@ -93,9 +93,9 @@ targets:
         gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
         www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
         www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
-        www.tumblr.com, www.reddit.com, imgur.com, www.whirlpool.net.au,
-        www.iinet.net.au, www.telstra.com.au, cdn-fastly.deb.debian.org,
-        ftp.slingshot.co.nz]
+        www.tumblr.com, www.reddit.com, www.twitch.tv, imgur.com,
+        www.whirlpool.net.au, www.iinet.net.au, www.telstra.com.au,
+        cdn-fastly.deb.debian.org, ftp.slingshot.co.nz]
 
   ftp: &ftp [ftp.citylink.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
         ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
@@ -334,6 +334,14 @@ tests:
 
 - args: -u https://www.wikipedia.org/
   start: 455
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.twitch.tv/
+  start: 465
   end: 86400
   frequency: 900
   period: day
