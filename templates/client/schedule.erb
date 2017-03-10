@@ -220,7 +220,7 @@ tests:
   target:
   - *rootdns
 
-- args: -u http://wand.net.nz/
+- args: -u https://wand.net.nz/
   start: 35
   end: 86400
   frequency: 900
@@ -228,7 +228,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://secure.wand.net.nz/
+- args: -u http://www.radionz.co.nz/
   start: 45
   end: 86400
   frequency: 900
@@ -236,7 +236,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.radionz.co.nz/
+- args: -u http://www.nzherald.co.nz/
   start: 95
   end: 86400
   frequency: 900
@@ -244,7 +244,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.nzherald.co.nz/
+- args: -u http://www.stuff.co.nz/
   start: 105
   end: 86400
   frequency: 900
@@ -252,7 +252,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.stuff.co.nz/
+- args: -u http://www.trademe.co.nz/
   start: 155
   end: 86400
   frequency: 900
@@ -260,7 +260,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.trademe.co.nz/
+- args: -u http://www.metservice.com/national/home
   start: 165
   end: 86400
   frequency: 900
@@ -268,7 +268,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.metservice.com/national/home
+- args: -u https://www.google.co.nz/
   start: 215
   end: 86400
   frequency: 900
@@ -276,7 +276,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.google.co.nz/
+- args: -u https://twitter.com/
   start: 225
   end: 86400
   frequency: 900
@@ -284,7 +284,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://twitter.com/
+- args: -u https://www.facebook.com/
   start: 275
   end: 86400
   frequency: 900
@@ -292,7 +292,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.facebook.com/
+- args: -u https://www.bing.com/
   start: 285
   end: 86400
   frequency: 900
@@ -300,7 +300,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.bing.com/
+- args: -u https://www.wikipedia.org/
   start: 335
   end: 86400
   frequency: 900
@@ -308,7 +308,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.wikipedia.org/
+- args: -u https://www.amazon.com/
   start: 345
   end: 86400
   frequency: 900
@@ -316,7 +316,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.amazon.com/
+- args: -u https://www.twitch.tv/
   start: 395
   end: 86400
   frequency: 900
@@ -324,7 +324,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.twitch.tv/
+- args: -u https://www.netflix.com/
   start: 405
   end: 86400
   frequency: 900
@@ -332,16 +332,8 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.netflix.com/
-  start: 455
-  end: 86400
-  frequency: 900
-  period: day
-  test: http
-  target: localhost
-
 - args: -u https://github.com/
-  start: 465
+  start: 455
   end: 86400
   frequency: 900
   period: day
