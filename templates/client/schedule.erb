@@ -42,7 +42,7 @@ targets:
         cachefly.cachefly.net, client.dropbox.com, v1.lscache1.c.youtube.com,
         gcm.googleapis.com, a248.e.akamai.net, cloud.google.com,
         www.googleapis.com, store.steampowered.com, www.google-analytics.com,
-        appldnld.apple.com, secure-appldnld.apple.com]
+        appldnld.apple.com, secure-appldnld.apple.com, pbs.twimg.com]
 
   aws: &aws [us-east-1.ec2.amazonaws.com, us-east-2.ec2.amazonaws.com,
         us-west-1.ec2.amazonaws.com, us-west-2.ec2.amazonaws.com,
@@ -96,7 +96,7 @@ targets:
         www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
         www.tumblr.com, www.reddit.com, www.twitch.tv, imgur.com,
         www.whirlpool.net.au, www.iinet.net.au, www.telstra.com.au,
-        cdn-fastly.deb.debian.org, ftp.slingshot.co.nz]
+        cdn-fastly.deb.debian.org, ftp.slingshot.co.nz, pbs.twimg.com]
 
   ftp: &ftp [ftp.citylink.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
         ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
@@ -336,6 +336,14 @@ tests:
 
 - args: -u https://github.com/
   start: 455
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://pbs.twimg.com/media/DMh7_p6VwAAkGSA.jpg:large
+  start: 465
   end: 86400
   frequency: 900
   period: day
